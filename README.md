@@ -2,23 +2,27 @@
 
 ## Project Overview
 
-The Mini Task Management System is a full-stack web application designed to help users manage their daily tasks efficiently. The system allows users to create, update, track, and delete tasks while organizing them using priorities and due dates.
+The Mini Task Management System is a full-stack web application that allows users to manage their daily tasks efficiently. Users can register, log in, and create tasks while organizing them with priorities, due dates, and status updates.
 
-Users can register and log in securely using JWT-based authentication. Once authenticated, users can manage their own tasks through a simple and user-friendly dashboard.
+The system is designed using a client-server architecture where the frontend communicates with the backend through REST APIs.
 
-The project is built using a modern web development stack consisting of a Next.js frontend, a Spring Boot backend, and a MySQL database.
+The application uses JWT authentication to ensure that users can only access and manage their own tasks.
 
-### Key Features
-- User registration and login
-- Secure authentication using JWT tokens
-- Create new tasks
-- Assign priorities to tasks
-- Set due dates
-- Update task status (TODO, IN_PROGRESS, DONE)
-- Delete tasks
-- Filter tasks by status and priority
-- Sort tasks by priority or due date
-- Pagination support for task lists
+### Technologies Used
+
+Frontend:
+- Next.js
+- React
+- Axios
+
+Backend:
+- Spring Boot
+- Spring Security
+- JWT Authentication
+- JPA / Hibernate
+
+Database:
+- MySQL
 
 ---
 
@@ -26,40 +30,34 @@ The project is built using a modern web development stack consisting of a Next.j
 
 ### 1. Clone the Repository
 
-Clone the project repository from GitHub.
-
 ```bash
 git clone <repository-url>
 cd mini-task-manager
 ```
 
----
-
 ### 2. Backend Setup
 
-Navigate to the backend folder.
+Navigate to the backend directory.
 
 ```bash
 cd backend
 ```
 
-Build the backend project using Maven.
+Build the project using Maven.
 
 ```bash
 mvn clean install
 ```
 
----
-
 ### 3. Frontend Setup
 
-Navigate to the frontend folder.
+Navigate to the frontend directory.
 
 ```bash
 cd frontend
 ```
 
-Install the required dependencies.
+Install required dependencies.
 
 ```bash
 npm install
@@ -69,23 +67,19 @@ npm install
 
 ## Database Configuration
 
-This project uses **MySQL** as the database.
+This application uses MySQL as the database.
 
-### Step 1 – Create the Database
+### Step 1 – Create Database
 
-Open your MySQL client and create a new database.
+Run the following SQL command in MySQL.
 
 ```sql
 CREATE DATABASE Task_Manager_DB;
 ```
 
----
+### Step 2 – Configure Backend Environment Variables
 
-### Step 2 – Configure Environment Variables
-
-Sensitive information such as database credentials and JWT secrets are stored using environment variables.
-
-Create a `.env` file inside the **backend directory**.
+Create a `.env` file inside the backend directory.
 
 Example configuration:
 
@@ -97,27 +91,23 @@ JWT_SECRET=your_secure_jwt_secret
 FRONTEND_URL=http://localhost:3000
 ```
 
----
+### Step 3 – Configure Frontend Environment Variables
 
-### Frontend Environment Configuration
+Create a `.env.local` file inside the frontend directory.
 
-Create a `.env.local` file inside the **frontend directory**.
-
-Example configuration:
+Example:
 
 ```
 NEXT_PUBLIC_API_URL=http://localhost:8080/api
 ```
 
-These environment files are excluded from GitHub using `.gitignore` to prevent sensitive data from being exposed.
-
 ---
 
 ## Steps to Run the Application
 
-### 1. Run the Backend Server
+### Run Backend
 
-Navigate to the backend folder.
+Navigate to backend directory.
 
 ```bash
 cd backend
@@ -129,7 +119,7 @@ Start the Spring Boot server.
 mvn spring-boot:run
 ```
 
-The backend API will run at:
+Backend will run at:
 
 ```
 http://localhost:8080
@@ -137,21 +127,21 @@ http://localhost:8080
 
 ---
 
-### 2. Run the Frontend Application
+### Run Frontend
 
-Navigate to the frontend folder.
+Navigate to frontend directory.
 
 ```bash
 cd frontend
 ```
 
-Start the Next.js development server.
+Start the development server.
 
 ```bash
 npm run dev
 ```
 
-The frontend application will run at:
+Frontend will run at:
 
 ```
 http://localhost:3000
@@ -159,55 +149,12 @@ http://localhost:3000
 
 ---
 
-### 3. Access the Application
+### Access the Application
 
-Open your browser and navigate to:
+Open a browser and go to:
 
 ```
 http://localhost:3000
 ```
 
-You can now:
-- Register a new user
-- Log in to the system
-- Create tasks
-- Manage task status
-- Filter and sort tasks
-- Delete tasks
-
----
-
-## Environment Variables
-
-The following environment variables are required for the application.
-
-### Backend
-
-| Variable | Description |
-|--------|-------------|
-| DB_URL | Database connection URL |
-| DB_USERNAME | Database username |
-| DB_PASSWORD | Database password |
-| JWT_SECRET | Secret key used to sign JWT tokens |
-| FRONTEND_URL | Allowed frontend origin for CORS |
-
-### Frontend
-
-| Variable | Description |
-|--------|-------------|
-| NEXT_PUBLIC_API_URL | Backend API base URL |
-
----
-
-## Notes
-
-- The backend uses **Spring Security with JWT authentication** to protect API endpoints.
-- Each user can only access their own tasks.
-- Environment variables are used to secure sensitive configuration data.
-- `.env` and `.env.local` files are excluded from version control using `.gitignore`.
-
----
-
-## Author
-
-Chamod Lakshitha
+Users can now register, log in, and manage tasks.
